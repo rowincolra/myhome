@@ -1,0 +1,208 @@
+@charset 'utf-8';
+
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+}
+body {
+    overflow-X:hidden;
+    /* 가로스크롤 안생기게해주는 기능 */
+    color:rgb(29,29,31);
+    /* 애플글자색갈 */
+    letter-spacing: -0.05em;
+    background:white;
+}
+p {
+    line-height: 1.6;
+}
+a {
+    color:rgb(29,29,31);
+    text-decoration: none;
+};
+
+/* menu */
+.global-nav {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 44px;
+    padding:1rem;
+}
+.local-nav {
+    position:absolute;
+    top:45px;
+    left:0;
+    width:100%; 
+    height: 52px;
+    border-bottom: 1px solid #ddd;
+}
+.global-nav-links, .local-nav-links {
+    display:flex;
+    align-items: center;
+    max-width:1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.global-nav-links {
+    justify-content: space-between;
+}
+.product-name {
+    margin-right:auto; 
+    font-size:1.4rem;
+    font-weight: bold;
+}
+.local-nav-links a:not(.product-name) {
+    margin-left:2em;
+    font-size:0.8em;
+}
+
+/* a:link, a:visited, a:hover, a:active {color:black;}; */
+
+/* 스크롤 section1 */
+.scroll-section {
+    padding-top: 50vh;
+    /* border:1px solid red; */
+}
+#scroll-section-1 h1{
+    font-size: 4rem;
+    text-align: center;
+}
+.main-message {
+    display:flex;
+    justify-content: center;
+    top:35vh;
+    align-items: center;
+    height:3em;
+    font-size:2.5rem;
+    opacity: 0;
+}
+.main-message p {
+    line-height: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 스크롤 section2 */
+.description {
+    max-width:1000px;
+    margin: 0 auto; 
+    font-size:1.2em;
+    color:#888;
+    padding: 0 1rem;
+}
+.description strong{
+    float:left;
+    margin-right: 0.2em;
+    font-size: 2.5rem;
+    color:rgb(29,29,31);
+}
+
+/* 스크롤 section3 */
+#scroll-section-3 .main-message{
+    font-size: 3rem;
+}
+.main-message small{
+    display:block;
+    margin-bottom:-1em;
+    font-size: 1.2rem;
+}
+.pin {
+    width: 1px;
+    height: 100px;
+    background: rgb(29,29,31);
+}
+#scroll-section-3 .b{
+    top:10%;
+    left:40%;
+}
+#scroll-section-3 .c{
+    top:15%;
+    left:45%;
+}
+
+/* 스크롤 section4 */
+.mid-message {
+    max-width:1000px;
+    margin: 0 auto; 
+    padding: 0 1rem;
+    font-size: 2rem;
+    color:#888;
+}
+.mid-message strong{
+    color:rgb(29,29,31);
+}
+.canvas-caption {
+    max-width:1000px;
+    margin: 0 auto; 
+    color:#888;
+    font-size: 1.2rem;
+    padding:0 1rem;
+    text-align: center;
+}
+
+.sticky-elem {
+    display:none;
+    position:fixed;
+    left:0;
+    width: 100%;
+}
+
+.desc-message {
+    font-weight: bold;
+    width: 40%;
+    opacity:0;
+}
+
+/* footer */
+.footer {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    background: rgb(33, 173, 253);
+}
+
+@media (min-width: 1024px) {
+    #scroll-section-1 h1{
+        font-size: 9vw;
+    }
+    .main-message {
+        font-size: 4vw;
+    }
+    .description {
+        font-size: 2rem;
+    }
+    .description strong {
+        font-size: 6rem;
+    }
+    #scroll-section-3 .main-message {
+        font-size: 6vw;
+    }
+    .main-message small {
+        font-size: 2vw;
+    }
+    .desc-message {
+        width: 30%;
+    }
+    #scroll-section .b{
+        top:20%;
+        left:53%;
+    }
+    #scroll-section .c{
+        left:55%;
+    }
+    .mid-message {
+        font-size: 4vw;
+    }
+    .canvas-caption {
+        font-size: 2rem;
+    }
+}
+
+#show-scene-0 #scroll-section-1 .sticky-elem,
+#show-scene-1 #scroll-section-2 .sticky-elem,
+#show-scene-2 #scroll-section-3 .sticky-elem,
+#show-scene-3 #scroll-section-4 .sticky-elem {display:block;}
+/* 씬넘버가 0부터 시작하는 이유는 index는 0부터 시작하기때문//클래스는 내맘대로 1~4로 지정 */
