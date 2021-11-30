@@ -21,13 +21,17 @@ a {
 };
 
 /* menu */
+nav {
+    z-index:100;
+}
 .global-nav {
     position:absolute;
     top:0;
     left:0;
     width:100%;
     height: 44px;
-    padding:1rem;
+    /* padding:1rem; */
+    z-index: 100;
 }
 .local-nav {
     position:absolute;
@@ -36,6 +40,7 @@ a {
     width:100%; 
     height: 52px;
     border-bottom: 1px solid #ddd;
+    z-index:100;
 }
 .global-nav-links, .local-nav-links {
     display:flex;
@@ -66,6 +71,9 @@ a {
     /* border:1px solid red; */
 }
 #scroll-section-1 h1{
+    position:relative;
+    top: -10vh;
+    z-index:100;
     font-size: 4rem;
     text-align: center;
 }
@@ -123,6 +131,18 @@ a {
 }
 
 /* 스크롤 section4 */
+#scroll-section-4 {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image-blend-canvas {
+    /* align-items: center; */
+    background:rgb(88, 155, 241);
+}
+/* #scroll-section-4 p.mid-message{
+    padding: 0 40vw  0 10vw;
+} */
 .mid-message {
     max-width:1000px;
     margin: 0 auto; 
@@ -205,4 +225,15 @@ a {
 #show-scene-1 #scroll-section-2 .sticky-elem,
 #show-scene-2 #scroll-section-3 .sticky-elem,
 #show-scene-3 #scroll-section-4 .sticky-elem {display:block;}
-/* 씬넘버가 0부터 시작하는 이유는 index는 0부터 시작하기때문//클래스는 내맘대로 1~4로 지정 */
+/* 씬넘버가 0부터 시작하는 이유는 index는 0부터 시작하기때문//id나 클래스는 내맘대로 1~4로 지정 */
+
+.sticky-elem-canvas {
+    top:0;
+    height: 100vh;
+    /* background: #999; */
+}
+.sticky-elem-canvas canvas{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+} 
