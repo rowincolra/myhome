@@ -133,14 +133,14 @@
         let imgElem;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++){
             imgElem = new Image();  
-            imgElem.src = `/video/myhome_30frame_4k/frame_${1 + i}.jpg`;
+            imgElem.src = `./video/myhome_30frame_4k/frame_${1 + i}.jpg`;
             sceneInfo[0].objs.videoImages.push(imgElem);
         };
 
         let imgElem2;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++){
             imgElem2 = new Image();  
-            imgElem2.src = `/video/logo_30frame/frame_${1 + i}.jpg`;
+            imgElem2.src = `./video/logo_30frame/frame_${1 + i}.jpg`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
         };
 
