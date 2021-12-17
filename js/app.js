@@ -159,7 +159,6 @@
         } else {document.body.classList.remove('local-nav-sticky')}
     }
 
-
     function setLayout(){ 
         //각 스크롤 섹션의 높이 세팅
         for (let i = 0; i < sceneInfo.length; i++){
@@ -451,7 +450,6 @@
                         objs.canvasCaption.style.transform = `translate3d(
                             0, ${calcValues(values.canvasCaption_translateY, currentYOffset)}%, 0)`;
                     
-                        console.log(calcValues(values.canvasCaption_translateY, currentYOffset));
                     };
                 };
 
@@ -484,24 +482,54 @@
         playAnimation();
     }
  
+    window.addEventListener('load', () => {
+        document.body.classList.remove('before-loading');
+        setLayout();
+        sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0],0 ,0);
+
+        // 스크롤값을 저장하여 페이지 새로고침시 초기값을 가져오는 코드
+        let tempYoffset = yOffset;
+        let tempScrollcount = 0;
+        if(yOffset > 0){
+            let siID = setInterval(() => {
+                window.scrollTo(0, tempYoffset);
+                tempYoffset +=2;
+    
+                if(tempScrollcount > 10){
+                    clearInterval(siID);
+                }
+                tempScrollcount++
+            }, 20);
+        }
+
+    });
+
     window.addEventListener('scroll',() => {
         yOffset = window.pageYOffset;
         scrollLoop();
         checkMenu();
-    });   
-    window.addEventListener('load', () => {
-        setLayout();
-        sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0],0 ,0);
-
-    });
+    }); 
+    
     //DOMContentLoaded 도 많이사용 (이미지가 로딩안되도 로딩시키는 매서드) 하지만 여기서는 이미지가 중요하기 때문에 로드를 사용한다
     window.addEventListener('resize',() => {
         if(window.innerWidth > 800){
-            setLayout();
+            window.location.reload();
+            // setLayout();
+            // sceneInfo[3].values.rectStartY = 0;
         }
-        sceneInfo[3].values.rectStartY = 0;
     });
-    window.addEventListener('orientationchange', setLayout());
+    window.addEventListener('orientationchange', () => {
+        scrollTo();
+        setTimeout(() => {
+            window.location.reload();
+        }, 500);
+    });
+    
+    document.querySelector('.loading').addEventListener('transitionend', (e) => {
+        // load 함수 안에 바로 쓰면 transition효과를 준 이유가 사라진다
+        // document.body.removeChild(document.querySelector('.loading'));
+        document.body.removeChild(e.currentTarget);
+    });
 
     setCanvasImage();
 
